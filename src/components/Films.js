@@ -4,7 +4,6 @@ import Film from "./Film";
 export default function Films() {
     return (
         <ContainerMainFilms>
-            <h2>Selecione o filme</h2>
             <ContainerFilms>
                 <Film />
                 <Film />

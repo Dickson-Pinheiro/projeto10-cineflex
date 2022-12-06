@@ -20,4 +20,5 @@ const ContainerTime = styled.li`
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.02em;
+    cursor: pointer;
 `
