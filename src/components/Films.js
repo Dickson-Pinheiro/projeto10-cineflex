@@ -21,16 +21,6 @@ const ContainerMainFilms = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    h2 {
-        font-family: "Roboto", sans-serif;
-        font-size: 24px;
-        font-weight: 400;
-        color: #293845;
-        height: 110px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
 `
 
 const ContainerFilms = styled.ul`

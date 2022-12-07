@@ -1,14 +1,16 @@
 import styled from "styled-components"
-import filmImage from "../assets/film.png"
 
-export default function Footer() {
+
+export default function Footer({image, title, date}) {
     return (
         <ContainerFooter>
             <ContainerFilm>
-                <img src={filmImage} />
+                <img src={image} />
             </ContainerFilm>
-            <h3>Enola Homes</h3>
-
+            <Container>
+            <h3>{title}</h3>
+            {date ? <p>{date}</p> : ""}
+            </Container>
         </ContainerFooter >
     )
 }
@@ -36,12 +38,20 @@ const ContainerFooter = styled.footer`
     align-items: center;
     background: #DFE6ED;
     border-top: 1px solid #9EADBA;
-    gap: 22px;
+    gap: 14px;
 
-    h3 {
+    h3, p {
         font-size: 26px;
         font-weight: 400;
         font-family: 'Roboto', sans-serif;
         color: #293845;
     }
+`
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    gap: 8px;
 `
