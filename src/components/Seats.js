@@ -1,13 +1,27 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import Seat from "./Seat"
 
-const seatsFilm = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50"]
-
 export default function Seats() {
+    const [seatsSession, setSeatsSession] = useState([])
+    
+    let {idSessao} = useParams()
+
+    useEffect(() =>{
+        axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`)
+        .then(response => {
+            const {seats} = response.data
+            setSeatsSession(seats)
+        })
+    }, [])
+
+
     return (
         <ContainerSeatsAndSubtitle>
             <ContainerSeats>
-                {seatsFilm.map((n) => <Seat number={n} key={n} />)}
+                 {seatsSession.map(s => <Seat number={s.name} key={s.id} isAVailable={s.isAvailable}/>)}
             </ContainerSeats>
         <Subtitles>
             <Subtitle backgroundColor="#1AAE9E" borderColor="#0E7D71">

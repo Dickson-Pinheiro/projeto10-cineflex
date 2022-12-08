@@ -1,5 +1,5 @@
-export default function DateFilm(){
+export default function DateFilm({day, date}){
     return(
-        <h3>Quinta-feira - 24/06/2021</h3>
+        <h3>{day} - {date}</h3>
     )
 }

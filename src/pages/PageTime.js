@@ -4,6 +4,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Title from "../components/Title";
 
+import imageFilm from "../assets/film.png"
+
+
 export default function PageTime() {
     return (
         <>
@@ -11,10 +14,8 @@ export default function PageTime() {
             <Title>Selecione o horário</Title>
             <ContainerDays>
                 <Days />
-                <Days />
-                <Days />
             </ContainerDays>
-            <Footer />
+            <Footer image={imageFilm} title="Enola Holmes"/>
         </>
     )
 }

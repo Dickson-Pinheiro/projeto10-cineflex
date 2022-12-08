@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
-export default function Seat({number}){
+export default function Seat({number, isAVailable}){
     return(
-        <ContainerSeat>
+        <ContainerSeat isAVailable={isAVailable}>
             {number}
         </ContainerSeat>
     )
@@ -14,10 +14,11 @@ const ContainerSeat = styled.li`
     font-size: 11px;
     font-weight: 400;
     letter-spacing: 4%;
-    background-color: #C3CFD9;
-    border: 1px solid #808F9D;
+    background-color: ${props => props.isAVailable ? "#C3CFD9": "#FBE192"};
+    border: 1px solid ${props => props.isAVailable ? "#808F9D": "#F7C52B"};
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 `

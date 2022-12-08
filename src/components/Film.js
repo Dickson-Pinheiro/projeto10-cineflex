@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
-import filmImage from "../assets/film.png" 
 
-export default function Film(){
-    return(
-        <ContainerFilm>
-            <img src={filmImage} />
-        </ContainerFilm>
+export default function Film({ filmImage, id }) {
+    return (
+        <Link to={`/sessoes/${id}`}>
+            <ContainerFilm>
+                <img src={filmImage} />
+            </ContainerFilm>
+        </Link>
     )
 }
 

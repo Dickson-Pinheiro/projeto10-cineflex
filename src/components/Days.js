@@ -1,34 +1,25 @@
-import Time from "./Time"
-import DateFilm from "./DateFilm"
-import styled from "styled-components"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-const horarioDosFilmes = [1, 2, 3, 4, 5]
+import Day from "./Day";
 
-export default function Days() {
-    return (
-        <ContainerTimeDays>
-            <Container>
-                <DateFilm />
-                <ContainerTimeFilm>
-                    {horarioDosFilmes.map(film => <Time key={film} />)}
-                </ContainerTimeFilm>
-            </Container>
-        </ContainerTimeDays>
+export default function Days(){
+    let [daysSession, setDaysSession] = useState([])
+
+    let {filmId} = useParams()
+
+    useEffect(() => {
+        axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/movies/${filmId}/showtimes`)
+        .then(response => {
+             let {days}= response.data
+             setDaysSession(days)
+        })
+    }, [])
+
+    return(
+        <>
+        {daysSession.map(day => <Day day={day} key={day.id}/>)}
+        </>
     )
 }
-
-const ContainerTimeDays = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-
-const ContainerTimeFilm = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 22px;
-`
-
-const Container = styled.div`
-    margin-left: 24px;
-`

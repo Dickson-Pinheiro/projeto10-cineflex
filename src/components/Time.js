@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-export default function Time(){
-    return(
+export default function Time({ hour, id }) {
+    return (
         <ContainerTime>
-            15:30
+            <Link to={`/assentos/${id}`}>
+                {hour}
+            </Link>
         </ContainerTime>
     )
 }
@@ -15,10 +18,20 @@ const ContainerTime = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.02em;
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        width: 83px;
+        height: 43px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
     cursor: pointer;
 `

@@ -7,6 +7,7 @@ export default function Title({children}){
 }
 
 const TitleContainer = styled.h2`
+    margin-top: 72px;
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     font-weight: 400;
