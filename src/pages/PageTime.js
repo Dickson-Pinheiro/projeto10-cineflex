@@ -26,7 +26,7 @@ export default function PageTime() {
 }
 
 const ContainerDays = styled.div`
-    margin-bottom: 137px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     gap: 23px;
