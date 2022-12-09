@@ -43,6 +43,7 @@ export default function CustomerData({name, setName, cpf, setCpf, selectedSeats}
 
 const DataCustomer = styled.form`
     margin-top: 43px;
+    height: 137px;
     display: flex;
     flex-direction: column;
     align-items: center;
