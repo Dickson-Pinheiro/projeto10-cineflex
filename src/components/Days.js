@@ -28,5 +28,5 @@ export default function Days({setImageFilm, setTitleFilm}){
 }
 
 const Container = styled.div`
-    margin-bottom: 137px;
+    margin-bottom: 70px;
 `

@@ -48,6 +48,7 @@ const DataCustomer = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 187px;
     gap: 8px;
     input {
         width: 327px;

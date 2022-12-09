@@ -20,6 +20,7 @@ export default function Day({day}) {
 const ContainerTimeDays = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 `
 
 const ContainerTimeFilm = styled.ul`
