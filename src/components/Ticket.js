@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-export default function Ticket({seats}){
+export default function Ticket({selectedSeats}){
     return(
         <ContainerTicket>
             <h1>Ingressos</h1>
-                {seats.map(s => <p key={s}>Assento {s}</p>)}
+                {selectedSeats.map(s => <p key={s}>Assento {s}</p>)}
         </ContainerTicket>
     )
 }

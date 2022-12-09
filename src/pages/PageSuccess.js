@@ -5,20 +5,33 @@ import Header from "../components/Header";
 import SuccessCustomerData from "../components/SuccessCustomerData";
 import SuccessTitle from "../components/SuccessTitle";
 import Ticket from "../components/Ticket";
+import { useNavigate } from "react-router-dom";
 
-export default function PageSuccess() {
-    const seats = ["15", "16", "17"]
+export default function PageSuccess({selectedSeats, hour, title, date, name, cpf, setTitle, setSelectedSeats, setDate, setName, setCpf, setDay, setHour }) {
+    const navigate = useNavigate()
+    function backHome(){
+        setTitle("")
+        setCpf("")
+        setDate("")
+        setHour("")
+        setName("")
+        setSelectedSeats([])
+        setDay("")
+        navigate("/")
+
+    }
+
 
     return (
         <>
             <Header />
             <SuccessTitle />
             <Container>
-                <FilmAndSession hour="15:30" title="Enola Holmes" date="21/11/2021" />
-                <Ticket seats={seats} />
-                <SuccessCustomerData name="João da Silva Sauro" cpf="123.456.689-10"/>
+                <FilmAndSession hour={hour} title={title} date={date}/>
+                <Ticket selectedSeats={selectedSeats} />
+                <SuccessCustomerData name={name} cpf={cpf}/>
             </Container>
-            <Button>Voltar pra Home</Button>
+            <Button clickFunction={backHome}>Voltar pra Home</Button>
         </>
     )
 }

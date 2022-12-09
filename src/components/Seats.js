@@ -4,39 +4,57 @@ import { useParams } from "react-router-dom"
 import styled from "styled-components"
 import Seat from "./Seat"
 
-export default function Seats() {
+export default function Seats({ setDay, setImage, setHour, setTitle, setSelectedSeats, selectedSeats, setDate }) {
     const [seatsSession, setSeatsSession] = useState([])
-    
-    let {idSessao} = useParams()
 
-    useEffect(() =>{
+    let { idSessao } = useParams()
+
+    useEffect(() => {
         axios.get(`https://mock-api.driven.com.br/api/v8/cineflex/showtimes/${idSessao}/seats`)
-        .then(response => {
-            const {seats} = response.data
-            setSeatsSession(seats)
-        })
+            .then(response => {
+                const { seats, movie, name, day } = response.data
+                const { weekday, date } = day
+                const { title, posterURL } = movie
+                setSeatsSession(seats)
+                setHour(name)
+                setDay(weekday)
+                setImage(posterURL)
+                setTitle(title)
+                setDate(date)
+            })
     }, [])
 
 
     return (
         <ContainerSeatsAndSubtitle>
             <ContainerSeats>
-                 {seatsSession.map(s => <Seat number={s.name} key={s.id} isAVailable={s.isAvailable}/>)}
+                {
+                    seatsSession.map(s => (
+                        <Seat
+                            number={s.name}
+                            key={s.id}
+                            isAVailable={s.isAvailable}
+                            setSelectedSeats={setSelectedSeats}
+                            selectedSeats={selectedSeats}
+                        />
+                    )
+                    )
+                }
             </ContainerSeats>
-        <Subtitles>
-            <Subtitle backgroundColor="#1AAE9E" borderColor="#0E7D71">
-                <div></div>
-                <p>Selecionado</p>
-            </Subtitle>
-            <Subtitle backgroundColor="#C3CFD9" borderColor="#7B8B99">
-                <div></div>
-                <p>Disponível</p>
-            </Subtitle>
-            <Subtitle backgroundColor="#FBE192" borderColor="#F7C52B">
-                <div></div>
-                <p>Indisponível</p>
-            </Subtitle>
-        </Subtitles>
+            <Subtitles>
+                <Subtitle backgroundColor="#1AAE9E" borderColor="#0E7D71">
+                    <div></div>
+                    <p>Selecionado</p>
+                </Subtitle>
+                <Subtitle backgroundColor="#C3CFD9" borderColor="#7B8B99">
+                    <div></div>
+                    <p>Disponível</p>
+                </Subtitle>
+                <Subtitle backgroundColor="#FBE192" borderColor="#F7C52B">
+                    <div></div>
+                    <p>Indisponível</p>
+                </Subtitle>
+            </Subtitles>
         </ContainerSeatsAndSubtitle>
     )
 }

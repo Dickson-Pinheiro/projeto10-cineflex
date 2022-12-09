@@ -1,21 +1,47 @@
+import axios from "axios"
 import styled from "styled-components"
+import Button from "./Button"
+import { useNavigate } from "react-router-dom"
 
-export default function CustomerData(){
+
+
+export default function CustomerData({name, setName, cpf, setCpf, selectedSeats}){
+    const navigate = useNavigate()
+    function submitCustomerData(e){
+        e.preventDefault()
+        if(selectedSeats.length === 0){
+            alert("Selecione os lugares para realizar a reserva")
+            return
+        }
+
+        const ticketData = {ids: selectedSeats, name, cpf}
+
+        axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", ticketData)
+        .then(res => {
+            console.log(res)
+            navigate("/sucesso")
+        })
+        .catch(err => console.log(err))
+
+
+    }
+
     return(
-        <DataCustomer>
-            <label>
+        <DataCustomer onSubmit={submitCustomerData}>
+            <label htmlFor="nome">
                 <p>Nome do comprador:</p>
-                <input type="text" placeholder="Digite seu nome..."/>
+                <input id="nome" type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..."/>
             </label>
-            <label>
+            <label htmlFor="cpf">
                 <p>CPF do comprador:</p>
-                <input type="text" placeholder="Digite seu CPF..."/>
+                <input id="cpf" type="text" required value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..."/>
             </label>
+            <Button >Reservar Assento(s)</Button>
         </DataCustomer>
     )
 }
 
-const DataCustomer = styled.div`
+const DataCustomer = styled.form`
     margin-top: 43px;
     display: flex;
     flex-direction: column;

@@ -1,10 +1,10 @@
 import { Children } from "react";
 import styled from "styled-components";
 
-export default function Button({children}){
+export default function Button({children, clickFunction}){
     return(
         <ContainerButton>
-            <button>{children}</button>
+            {clickFunction ? <button onClick={clickFunction}>{children}</button> : <button>{children}</button>}
         </ContainerButton>
     )
 }
