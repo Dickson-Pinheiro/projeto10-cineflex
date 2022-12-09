@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Button({children, clickFunction}){
     return(
         <ContainerButton>
-            {clickFunction ? <button onClick={clickFunction}>{children}</button> : <button>{children}</button>}
+            {clickFunction ? <button data-test="go-home-btn" onClick={clickFunction}>{children}</button> : <button data-test="book-seat-btn">{children}</button>}
         </ContainerButton>
     )
 }

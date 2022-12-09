@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function Footer({image, title, date}) {
     return (
-        <ContainerFooter>
+        <ContainerFooter data-test="footer">
             <ContainerFilm>
                 <img src={image} />
             </ContainerFilm>

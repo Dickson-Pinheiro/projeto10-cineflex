@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function Ticket({selectedSeats}){
     return(
-        <ContainerTicket>
+        <ContainerTicket data-test="seats-info">
             <h1>Ingressos</h1>
                 {selectedSeats.map(s => <p key={s}>Assento {s}</p>)}
         </ContainerTicket>

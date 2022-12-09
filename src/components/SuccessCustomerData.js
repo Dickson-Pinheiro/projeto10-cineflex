@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function SuccessCustomerData({name, cpf}){
     return(
-        <ContainerSuccessCustomerData>
+        <ContainerSuccessCustomerData data-test="client-info">
             <h1>Comprador</h1>
             <p>Nome: {name}</p>
             <p>CPF: {cpf}</p>

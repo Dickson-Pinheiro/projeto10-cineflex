@@ -6,7 +6,7 @@ import DateFilm from "./DateFilm"
 export default function Day({day}) {
     const {weekday, date, showtimes} = day
     return (
-        <ContainerTimeDays>
+        <ContainerTimeDays data-test="movie-day">
             <Container>
                 <DateFilm date={date} day={weekday}/>
                 <ContainerTimeFilm >

@@ -30,11 +30,11 @@ export default function CustomerData({name, setName, cpf, setCpf, selectedSeats}
         <DataCustomer onSubmit={submitCustomerData}>
             <label htmlFor="nome">
                 <p>Nome do comprador:</p>
-                <input id="nome" type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..."/>
+                <input data-test="client-name" id="nome" type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..."/>
             </label>
             <label htmlFor="cpf">
                 <p>CPF do comprador:</p>
-                <input id="cpf" type="text" required value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..."/>
+                <input data-test="client-cpf" id="cpf" type="text" required value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..."/>
             </label>
             <Button >Reservar Assento(s)</Button>
         </DataCustomer>

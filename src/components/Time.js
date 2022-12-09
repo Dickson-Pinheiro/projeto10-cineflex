@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function Time({ hour, id }) {
     return (
-        <ContainerTime>
+        <ContainerTime data-test="showtime">
             <Link to={`/assentos/${id}`}>
                 {hour}
             </Link>

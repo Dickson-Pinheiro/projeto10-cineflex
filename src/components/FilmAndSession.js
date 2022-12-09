@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function FilmAndSession({date, hour, title}){
     return(
-        <ContainerFilmAndSession>
+        <ContainerFilmAndSession data-test="movie-info">
             <h1>Filme e sessão</h1>
             <p>{title}</p>
             <p>{date} {hour}</p>

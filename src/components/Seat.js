@@ -22,7 +22,7 @@ export default function Seat({ number, isAVailable, selectedSeats, setSelectedSe
     }
 
     return (
-        <ContainerSeat isAVailable={isAVailable} isSelected={isSelected} onClick={() => bookSeat(number)}>
+        <ContainerSeat data-test="seat" isAVailable={isAVailable} isSelected={isSelected} onClick={() => bookSeat(number)}>
             {number}
         </ContainerSeat>
     )
