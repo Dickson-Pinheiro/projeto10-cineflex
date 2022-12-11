@@ -7,6 +7,7 @@ export default function Seat({ number, isAVailable, selectedSeats, setSelectedSe
 
     function bookSeat(seatData) {
         if (!isAVailable) {
+            alert("Assento indisponível")
             return
         }
 
