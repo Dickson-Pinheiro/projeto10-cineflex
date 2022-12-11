@@ -28,7 +28,7 @@ export default function PageSuccess({selectedSeats, hour, title, date, name, cpf
             <SuccessTitle />
             <Container>
                 <FilmAndSession hour={hour} title={title} date={date}/>
-                <Ticket selectedSeats={selectedSeats} />
+                <Ticket selectedSeats={selectedSeats.map( seat => seat.name)} />
                 <SuccessCustomerData name={name} cpf={cpf}/>
             </Container>
             <Button clickFunction={backHome}>Voltar pra Home</Button>

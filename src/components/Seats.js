@@ -15,6 +15,7 @@ export default function Seats({ setDay, setImage, setHour, setTitle, setSelected
                 const { seats, movie, name, day } = response.data
                 const { weekday, date } = day
                 const { title, posterURL } = movie
+                console.log(seats)
                 setSeatsSession(seats)
                 setHour(name)
                 setDay(weekday)
@@ -31,7 +32,7 @@ export default function Seats({ setDay, setImage, setHour, setTitle, setSelected
                 {
                     seatsSession.map(s => (
                         <Seat
-                            number={s.name}
+                            seat={s}
                             key={s.id}
                             isAVailable={s.isAvailable}
                             setSelectedSeats={setSelectedSeats}

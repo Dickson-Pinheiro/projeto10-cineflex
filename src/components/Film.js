@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export default function Film({ filmImage, id }) {
     return (
-        <Link to={`/sessoes/${id}`}>
+        <Link to={`/sessoes/${id}`} data-test="movie">
             <ContainerFilm>
                 <img src={filmImage} />
             </ContainerFilm>

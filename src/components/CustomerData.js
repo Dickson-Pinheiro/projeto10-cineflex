@@ -14,7 +14,8 @@ export default function CustomerData({name, setName, cpf, setCpf, selectedSeats}
             return
         }
 
-        const ticketData = {ids: selectedSeats, name, cpf}
+        const ticketData = {ids: selectedSeats.map(seat => seat.id), name, cpf}
+        console.log(ticketData)
 
         axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", ticketData)
         .then(res => {

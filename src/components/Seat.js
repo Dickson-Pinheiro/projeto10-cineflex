@@ -1,29 +1,29 @@
 import { useState } from "react"
 import styled from "styled-components"
 
-export default function Seat({ number, isAVailable, selectedSeats, setSelectedSeats }) {
+export default function Seat({ number, isAVailable, selectedSeats, setSelectedSeats, seat }) {
 
     const [isSelected, setIsSelected] = useState(false)
 
-    function bookSeat(n) {
+    function bookSeat(seatData) {
         if (!isAVailable) {
             return
         }
 
         if (isSelected) {
-            let newSelectedSeats = selectedSeats.filter(num => num !== n)
+            let newSelectedSeats = selectedSeats.filter(seat => seat.name != seatData.name)
             setIsSelected(!isSelected)
             setSelectedSeats([...newSelectedSeats])
             return
         }
 
-        setSelectedSeats([...selectedSeats, n])
+        setSelectedSeats([...selectedSeats, {id: seatData.id, name: seatData.name}])
         setIsSelected(!isSelected)
     }
 
     return (
-        <ContainerSeat data-test="seat" isAVailable={isAVailable} isSelected={isSelected} onClick={() => bookSeat(number)}>
-            {number}
+        <ContainerSeat data-test="seat" isAVailable={isAVailable} isSelected={isSelected} onClick={() => bookSeat(seat)}>
+            {seat.name}
         </ContainerSeat>
     )
 }
